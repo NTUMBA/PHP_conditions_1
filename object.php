@@ -18,11 +18,11 @@
                               echo 'L\'envoi a bien été effectué !'. '</br>';
              }
           }
-          if (isset($_POST['nom']) AND isset($_POST['prenom'])){
+          if (isset($_POST['nom']) AND ctype_alpha($_POST['nom']) AND isset($_POST['prenom']) AND ctype_alpha($_POST['prenom'])){
               echo 'Bonjour'. ' ' .htmlspecialchars($_POST['nom']).' ' .htmlspecialchars($_POST['prenom']). '</br>';
           }
           else {
-              echo 'Vous avez oublié d\'indiquez votre nom et/ou prénom';
+              echo 'Vous avez oublié d\'indiquez votre nom et/ou prénom'. '</br>';
           }
           if (isset($_POST['age']) AND $_POST['age'] == is_int){
               echo 'Vous avez'. ' ' .htmlspecialchars($_POST['age']). '</br>';
@@ -41,8 +41,8 @@
           else {
               echo 'Vous n\'êtes ni un homme ni une femme...un problème?'. '</br>';
           }
-          if (isset($_POST['ville'])){
-              echo 'Vous venez de la ville de'. ' ' .htmlspecialchars($_POST['ville']). '</br>';
+          if (isset($_POST['ville']) AND ctype_alpha($_POST['ville'])){
+              echo 'Vous venez de la ville de'. ' ' .htmlspecialchars($_POST['ville']).' '. '</br>';
           }
           else{
               echo 'D\'où venez-vous?';
